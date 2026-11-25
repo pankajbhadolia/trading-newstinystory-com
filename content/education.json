@@ -1,0 +1,96 @@
+{
+  "categories": [
+    { "slug": "trading-guides", "title": "Trading Guides", "description": "Understand trade planning, orders and review basics." },
+    { "slug": "options-trading-education", "title": "Options Trading Education", "description": "Explore option premiums, contracts and their limitations." },
+    { "slug": "risk-management", "title": "Risk Management", "description": "Learn how position size and loss limits relate to trading risk." },
+    { "slug": "trading-psychology", "title": "Trading Psychology", "description": "Reflect on uncertainty, emotions and decision-making." },
+    { "slug": "trading-discipline", "title": "Trading Discipline", "description": "Build a repeatable preparation and review process." },
+    { "slug": "calculator-tutorials", "title": "Calculator Tutorials", "description": "Understand calculator inputs, assumptions and results." },
+    { "slug": "financial-education", "title": "Financial Education", "description": "Explore capital, savings and the mathematics of loss." },
+    { "slug": "frequently-asked-questions", "title": "Frequently Asked Questions", "description": "Answers about the tools and educational material." }
+  ],
+  "articles": [
+    {
+      "category": "trading-guides", "slug": "planning-a-trade", "title": "Planning a trade: a practical checklist",
+      "description": "Review a simple trade plan covering entry, exit, risk and a post-trade journal.",
+      "intro": "A trade plan records the reasoning and boundaries of a hypothetical trade before an order is placed. A plan can support reflection, but it cannot remove uncertainty.",
+      "sections": [
+        { "heading": "Define the trade", "paragraphs": ["Record the instrument, direction and planned entry. Note the reason for the trade and the conditions that would invalidate the idea.", "Check the relevant contract details and order rules with your broker and exchange. Prices can move before an order is filled."] },
+        { "heading": "Consider risk and costs", "paragraphs": ["Choose a position size and a possible exit in advance, considering capital available, charges, liquidity and slippage. A stop price is not a guaranteed execution price."] },
+        { "heading": "Review the outcome", "paragraphs": ["After the trade, record executions and charges separately from your expectations. Compare the decisions with your plan without assuming that one outcome proves the plan works."] }
+      ],
+      "relatedCalculators": ["position-size", "stop-loss", "brokerage"]
+    },
+    {
+      "category": "options-trading-education", "slug": "understanding-options-premiums", "title": "Understanding option premiums and round trips",
+      "description": "Learn what an option premium round-trip calculation includes and what it leaves out.",
+      "intro": "An option premium is the price of an option contract quoted per unit. Contract terms, lot sizes and obligations must be checked for the specific instrument.",
+      "sections": [
+        { "heading": "A simple premium round trip", "paragraphs": ["For a buy-and-sell round trip, the difference between the sell and buy premium multiplied by total units gives gross P&L before charges. Total units are lots multiplied by units per lot."] },
+        { "heading": "Important limitations", "paragraphs": ["The calculator does not model exercise, assignment, expiry or the underlying price path. Option buyers and sellers have different rights and obligations; option selling can involve substantial losses.", "Confirm contract specifications, margin requirements and applicable charges independently before considering a trade."] }
+      ],
+      "relatedCalculators": ["options", "brokerage", "risk-reward"]
+    },
+    {
+      "category": "risk-management", "slug": "position-size-and-stop-distance", "title": "Position size and stop distance",
+      "description": "Understand the relationship between a risk budget, stop distance and whole-unit position size.",
+      "intro": "A risk budget is a chosen amount for planning, not a guarantee of the maximum possible loss.",
+      "sections": [
+        { "heading": "Calculate planned size", "paragraphs": ["Divide the chosen risk budget by the distance between entry and stop per unit, then round down to whole units. For example, ₹1,000 divided by ₹5 gives 200 units."] },
+        { "heading": "Check the assumptions", "paragraphs": ["The simple result excludes brokerage, slippage, gaps, margin and affordability. An order may execute at a different price from the stop, and losses can exceed the planned budget.", "Only use capital you can afford to risk after considering essential expenses, obligations and emergency savings."] }
+      ],
+      "relatedCalculators": ["position-size", "stop-loss", "risk-reward"]
+    },
+    {
+      "category": "trading-psychology", "slug": "reviewing-decisions-under-uncertainty", "title": "Reviewing decisions under uncertainty",
+      "description": "Use a journal to reflect on emotions and decisions without confusing outcomes with causation.",
+      "intro": "A trading outcome alone does not explain the quality of a decision. A short written review can help separate what was planned from what happened.",
+      "sections": [
+        { "heading": "Record context", "paragraphs": ["Write down the original plan, available information, actual actions and any emotions you noticed. Avoid rewriting the original rationale after seeing the outcome."] },
+        { "heading": "Look for questions, not proof", "paragraphs": ["Repeated journal entries may suggest questions for further review, but a pattern is not proof that an emotion caused an outcome. Small samples and incomplete records can be misleading."] }
+      ],
+      "relatedCalculators": ["risk-reward", "drawdown"]
+    },
+    {
+      "category": "trading-discipline", "slug": "building-a-trading-checklist", "title": "Building a practical trading checklist",
+      "description": "Create a concise checklist for preparation, trade management and post-market review.",
+      "intro": "A checklist makes chosen steps visible. It does not ensure profitable trading or replace independent judgment.",
+      "sections": [
+        { "heading": "Before and during a session", "paragraphs": ["Consider recording whether the trade idea, position size, possible exit and relevant charges have been reviewed. Add rules that fit your circumstances rather than copying a fixed target."] },
+        { "heading": "After the session", "paragraphs": ["Record which steps were completed or missed and why. Review entries over time; a high checklist score measures recorded completion, not the quality or profitability of a strategy."] }
+      ],
+      "relatedCalculators": ["position-size", "stop-loss"]
+    },
+    {
+      "category": "calculator-tutorials", "slug": "using-trading-calculators", "title": "How to use trading calculators responsibly",
+      "description": "Learn how to check inputs, charge assumptions and limitations in Indian trading calculators.",
+      "intro": "Calculators help illustrate arithmetic from inputs you provide. Their outputs are estimates, not trading instructions.",
+      "sections": [
+        { "heading": "Enter and verify inputs", "paragraphs": ["Use the correct price, direction, unit quantity and contract lot size. Brokerage and P&L tools require you to enter and confirm the applicable rates; no broker or tax rates are supplied."] },
+        { "heading": "Read the breakdown", "paragraphs": ["Distinguish gross P&L from net P&L and review what is included or excluded. Rates and rules can change; verify them against authoritative sources and your broker for the relevant trade date."] }
+      ],
+      "relatedCalculators": ["brokerage", "equity-delivery", "position-size"]
+    },
+    {
+      "category": "financial-education", "slug": "loss-and-recovery-mathematics", "title": "Why percentage losses need larger gains",
+      "description": "Understand how the remaining balance changes the percentage gain needed to recover a loss.",
+      "intro": "Loss and recovery percentages use different starting balances, so they are not generally equal.",
+      "sections": [
+        { "heading": "Work through an example", "paragraphs": ["A 20% loss reduces ₹100 to ₹80. Returning to ₹100 needs a ₹20 gain, which is 25% of ₹80. This is arithmetic, not a prediction that recovery will occur."] },
+        { "heading": "Keep essential funds separate", "paragraphs": ["Before risking capital, consider essential expenses, emergency savings, debt and financial obligations. Market losses can be substantial and may not be recovered."] }
+      ],
+      "relatedCalculators": ["loss-recovery", "drawdown", "capital-depletion"]
+    },
+    {
+      "category": "frequently-asked-questions", "slug": "trading-tools-faq", "title": "Trading tools: frequently asked questions",
+      "description": "Answers about calculator charges, forecasts, privacy and educational limitations.",
+      "intro": "These answers explain the scope of Trader's Command Centre's educational tools.",
+      "sections": [
+        { "heading": "Do calculators provide financial advice?", "paragraphs": ["No. Outputs are estimates based on the inputs and assumptions shown; they are not recommendations or guarantees."] },
+        { "heading": "Are Indian brokerage and tax rates prefilled?", "paragraphs": ["No. Enter and confirm the rates applicable to your broker, exchange, instrument and trade date. Verify rules and charges independently."] },
+        { "heading": "Are accounts ready for sensitive records?", "paragraphs": ["Account and journal features are a development preview. Do not enter real sensitive data until the documented security and privacy work is complete."] }
+      ],
+      "relatedCalculators": ["brokerage", "risk-reward"]
+    }
+  ]
+}

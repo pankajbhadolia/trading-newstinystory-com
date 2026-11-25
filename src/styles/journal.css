@@ -1,0 +1,43 @@
+.journal-app { margin: 28px 0; }
+.journal-tabs, .journal-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.journal-tabs { padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.journal-section { margin: 24px 0; }
+.journal-section h2 { font-size: 23px; margin: 0 0 8px; }
+.journal-section > p, .journal-editor > p, .journal-calculation p, .journal-rule-group p, .journal-screenshots p { color: var(--muted); line-height: 1.6; }
+.journal-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+.journal-editor { padding: 24px; margin: 20px 0; }
+.journal-editor h2, .journal-editor h3 { margin: 0 0 12px; }
+.journal-fields, .journal-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+.journal-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.journal-fields label, .journal-filters label, .execution-row label, .review-item label, .journal-editor > label { display: grid; gap: 6px; min-width: 0; font-weight: 600; }
+.journal-fields .journal-checkbox { display: flex; align-items: center; gap: 8px; }
+.journal-notes { grid-template-columns: 1fr; }
+.journal-executions { margin: 28px 0; }
+.execution-row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 12px; align-items: end; margin: 12px 0; }
+.journal-calculation { padding: 18px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: 8px; margin: 22px 0; }
+.journal-calculation dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.journal-calculation dt { color: var(--muted); }
+.journal-calculation dd { margin: 2px 0 0; font-weight: 700; overflow-wrap: anywhere; }
+.journal-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+.journal-summary section { padding: 18px; }
+.journal-summary h3 { margin: 0; }
+.journal-summary small { color: var(--muted); }
+.journal-rule-group { margin: 26px 0; }
+.journal-rule-group h3, .review-category h4 { margin: 0 0 10px; }
+.journal-rule-group ul, .journal-screenshots ul { margin: 0; padding: 0; list-style: none; }
+.journal-rule-group li, .journal-screenshots li { display: flex; justify-content: space-between; gap: 12px; align-items: center; border-bottom: 1px solid var(--border); padding: 12px 0; }
+.journal-rule-group small, .review-item small { color: var(--muted); display: block; }
+.review-category { margin: 22px 0; }
+.review-item { display: grid; grid-template-columns: 1fr 170px 1fr; gap: 14px; align-items: end; padding: 12px 0; border-top: 1px solid var(--border); }
+.journal-screenshots { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 20px; }
+.journal-upload { display: grid; gap: 8px; font-weight: 600; }
+.account-settings-form { display: grid; gap: 12px; max-width: 480px; margin: 18px 0; }
+.account-settings-form label { display: grid; gap: 6px; font-weight: 600; }
+.account-settings-form button { justify-self: start; }
+@media (max-width: 760px) {
+  .journal-fields, .journal-filters, .journal-summary { grid-template-columns: 1fr; }
+  .execution-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .journal-calculation dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .review-item { grid-template-columns: 1fr; }
+  .journal-editor { padding: 18px; }
+}

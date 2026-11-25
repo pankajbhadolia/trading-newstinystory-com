@@ -1,0 +1,39 @@
+.risk-form, .account-form { max-width: 760px; padding: 28px; margin: 24px 0; }
+.account-form { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.risk-form h2, .account-form h2 { margin: 4px 0 8px; font-size: 22px; }
+.risk-form > p, .account-form > p, .risk-report p, .risk-history > p { color: var(--muted); line-height: 1.65; }
+.risk-progress { color: var(--accent) !important; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+.risk-questions, .account-form form { display: grid; gap: 18px; margin: 24px 0; }
+.risk-questions label, .account-form label { display: grid; gap: 7px; font-weight: 600; }
+.risk-questions small { color: var(--muted); font-weight: 400; }
+.risk-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 22px 0; }
+.risk-report { display: grid; gap: 24px; margin: 30px 0; }
+.risk-report h2 { font-size: 26px; }
+.risk-report h3 { margin: 0 0 12px; font-size: 18px; }
+.risk-report h4 { margin: 0 0 8px; font-size: 16px; }
+.risk-report ul { padding-left: 20px; margin: 10px 0; }
+.risk-report li { margin: 5px 0; line-height: 1.55; }
+.risk-score-grid, .risk-findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.risk-score, .risk-instruments article, .risk-report-section.ui-card { padding: 20px; }
+.risk-score > strong { color: var(--accent); font-size: 30px; }
+.risk-score small { color: var(--muted); font-size: 14px; }
+.risk-score ul { font-size: 13px; color: var(--muted); }
+.risk-focus { border: 2px solid var(--accent); }
+.risk-focus-section { padding: 20px; border-radius: 8px; background: var(--surface); }
+.risk-report .risk-focus-label { margin: 0 0 8px; color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.risk-findings > section { padding: 20px; border: 1px solid var(--border); background: var(--surface); border-radius: 8px; }
+.risk-budget { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.risk-budget div { padding: 14px; background: var(--surface-alt); border-radius: 6px; }
+.risk-budget dt { color: var(--muted); font-size: 12px; }
+.risk-budget dd { margin: 4px 0 0; font-size: 17px; font-weight: 700; overflow-wrap: anywhere; }
+.risk-instruments { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.risk-instruments article > strong { color: var(--accent); }
+.risk-table-wrap { max-width: 100%; overflow-x: auto; }
+.risk-table { width: 100%; border-collapse: collapse; background: var(--surface); text-align: left; }
+.risk-table th, .risk-table td { border-bottom: 1px solid var(--border); padding: 12px; white-space: nowrap; }
+.risk-table th { background: var(--surface-alt); }
+@media (max-width: 760px) {
+  .risk-score-grid, .risk-findings, .risk-instruments { grid-template-columns: 1fr; }
+  .risk-budget { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .risk-form, .account-form { padding: 20px; }
+}

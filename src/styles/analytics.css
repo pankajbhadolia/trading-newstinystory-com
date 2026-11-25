@@ -1,0 +1,27 @@
+.analytics-app { margin: 28px 0; }
+.analytics-section { margin: 20px 0; padding: 22px; min-width: 0; }
+.analytics-section h2, .analytics-section h3 { margin: 0 0 12px; }
+.analytics-section p, .analytics-app > p { color: var(--muted); line-height: 1.6; }
+.analytics-controls label { display: grid; gap: 6px; font-weight: 600; }
+.analytics-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.analytics-metrics > div { padding: 16px; min-width: 0; }
+.analytics-metrics span, .analytics-metrics strong { display: block; overflow-wrap: anywhere; }
+.analytics-metrics span { color: var(--muted); }
+.analytics-metrics strong { font-size: 19px; margin-top: 6px; }
+.analytics-chart { display: flex; gap: 10px; align-items: end; overflow-x: auto; padding: 16px 0; }
+.analytics-bar { display: flex; flex: 0 0 110px; min-height: 180px; flex-direction: column; align-items: center; justify-content: end; gap: 6px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--foreground); }
+.analytics-bar[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.analytics-bar-fill { display: block; width: 36px; border-radius: 4px 4px 0 0; background: var(--accent); }
+.analytics-bar-fill.negative { background: var(--negative, #b42318); }
+.analytics-bar span:last-child { overflow-wrap: anywhere; }
+.analytics-selection { padding: 12px; background: var(--surface-alt); }
+.analytics-evidence { list-style: none; padding: 0; margin: 8px 0; overflow-wrap: anywhere; }
+.analytics-evidence li { margin: 6px 0; }
+.analytics-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.analytics-compare-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .analytics-compare-evidence { grid-template-columns: 1fr; } .analytics-section { padding: 16px; } }
+@media print {
+  .analytics-controls, .sidebar, .topbar, .mobile-header, .mobile-nav, .journal-tabs { display: none !important; }
+  .analytics-chart { overflow: visible; flex-wrap: wrap; }
+  .analytics-section, .analytics-metrics > div { break-inside: avoid; }
+}

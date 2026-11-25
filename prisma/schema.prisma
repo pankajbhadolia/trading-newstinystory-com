@@ -1,0 +1,212 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String              @id
+  name               String
+  email              String              @unique
+  emailVerified      Boolean             @default(false)
+  legacyAccess       Boolean             @default(false)
+  image              String?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  sessions           Session[]
+  accounts           Account[]
+  assessments        RiskAssessment[]
+  trades             JournalTrade[]
+  rules              DisciplineRule[]
+  reviews            DailyReview[]
+  screenshots        JournalScreenshot[]
+  preference         UserPreference?
+  subscription       Subscription?
+  subscriptionEvents SubscriptionEvent[]
+  upgradeRequests    UpgradeRequest[]
+}
+
+enum SubscriptionTier {
+  FREE
+  PRO
+  PREMIUM
+}
+
+model UserPreference {
+  userId    String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  theme     String   @default("corporate-light")
+  updatedAt DateTime @updatedAt
+}
+
+model Subscription {
+  userId    String           @id
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tier      SubscriptionTier
+  expiresAt DateTime
+  source    String
+  updatedAt DateTime         @updatedAt
+}
+
+model SubscriptionEvent {
+  id              String           @id @default(cuid())
+  userId          String
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tier            SubscriptionTier
+  expiresAt       DateTime
+  action          String
+  actor           String
+  reason          String
+  source          String
+  providerEventId String?          @unique
+  createdAt       DateTime         @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model UpgradeRequest {
+  id         String           @id @default(cuid())
+  userId     String
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tier       SubscriptionTier
+  status     String           @default("PENDING")
+  createdAt  DateTime         @default(now())
+  resolvedAt DateTime?
+
+  @@index([userId, createdAt])
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+model RateLimit {
+  id          String @id
+  key         String @unique
+  count       Int
+  lastRequest BigInt
+}
+
+model RiskAssessment {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ruleVersion String
+  report      Json
+  createdAt   DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model JournalTrade {
+  id          String              @id @default(cuid())
+  userId      String
+  user        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tradeDate   String?
+  session     String?
+  instrument  String?
+  symbol      String?
+  draft       Boolean             @default(true)
+  record      Json
+  gross       Decimal?            @db.Decimal(20, 2)
+  net         Decimal?            @db.Decimal(20, 2)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  screenshots JournalScreenshot[]
+
+  @@index([userId, tradeDate, id])
+  @@index([userId, symbol])
+}
+
+model DisciplineRule {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category  String
+  title     String
+  weight    Int
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, active])
+}
+
+model DailyReview {
+  id          String              @id @default(cuid())
+  userId      String
+  user        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        String
+  session     String
+  notes       String              @default("")
+  checklist   Json
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  screenshots JournalScreenshot[]
+
+  @@unique([userId, date, session])
+  @@index([userId, date])
+}
+
+model JournalScreenshot {
+  id        String        @id @default(cuid())
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tradeId   String?
+  trade     JournalTrade? @relation(fields: [tradeId], references: [id], onDelete: Cascade)
+  reviewId  String?
+  review    DailyReview?  @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  slot      Int
+  name      String
+  mimeType  String
+  data      Bytes
+  createdAt DateTime      @default(now())
+
+  @@unique([tradeId, slot])
+  @@unique([reviewId, slot])
+  @@index([userId])
+}

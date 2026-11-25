@@ -1,0 +1,17 @@
+.education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.education-card { padding: 22px; }
+.education-card h2 { margin: 0 0 8px; font-size: 17px; }
+.education-card h2 a:hover, .education-content a:hover { text-decoration: underline; }
+.education-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.education-content { max-width: 760px; color: var(--foreground); font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+.education-article { margin-top: 38px; }
+.education-content h1 { margin: 10px 0 16px; font-size: clamp(29px, 3vw, 40px); line-height: 1.2; letter-spacing: -.035em; }
+.education-content h2 { margin: 32px 0 8px; font-size: 20px; line-height: 1.3; }
+.education-content h3 { margin: 20px 0 6px; font-size: 15px; line-height: 1.4; }
+.education-content p { margin: 0 0 14px; color: var(--muted); }
+.education-content li { margin-bottom: 6px; color: var(--muted); }
+.education-content a { color: var(--accent); font-weight: 600; }
+.education-content .education-lead { font-size: 16px; }
+.education-disclaimer, .education-content .education-disclaimer { margin: 24px 0; padding: 16px; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); background: var(--surface-alt); font-size: 12px; line-height: 1.65; }
+.calculator-guide { margin-top: 48px; }
+@media (max-width: 650px) { .education-grid { grid-template-columns: 1fr; } }

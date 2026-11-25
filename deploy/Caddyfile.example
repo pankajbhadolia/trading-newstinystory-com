@@ -1,0 +1,19 @@
+trading.newstinystory.com {
+	# Caddy 2.10+; direct public traffic only, with Next.js bound to loopback.
+	request_body {
+		max_size 6MB
+	}
+
+	# Readiness is available only through the loopback application listener.
+	@readiness path /api/health/ready
+	respond @readiness 404
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+
+	reverse_proxy 127.0.0.1:3000 {
+		header_up X-Real-IP {remote_host}
+	}
+}

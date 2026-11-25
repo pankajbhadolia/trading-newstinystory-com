@@ -1,0 +1,96 @@
+:root,
+:root[data-theme="corporate-light"] {
+  color-scheme: light;
+  --background: #f3f6fa;
+  --surface: #ffffff;
+  --surface-alt: #f6f9fc;
+  --foreground: #10243d;
+  --muted: #566a80;
+  --border: #dce5ee;
+  --accent: #205a96;
+  --accent-hover: #174879;
+  --accent-soft: #e8f1fb;
+  --on-accent: #ffffff;
+  --hero: #102b4b;
+  --hero-foreground: #ffffff;
+  --hero-muted: #d3e1ef;
+  --positive: #137348;
+  --positive-bg: #e7f5ed;
+  --negative: #b12f37;
+  --negative-bg: #fcebed;
+  --caution: #875600;
+  --caution-bg: #fff3d9;
+  --focus: #246eb5;
+}
+
+:root[data-theme="corporate-dark"] {
+  color-scheme: dark;
+  --background: #101820;
+  --surface: #1b2734;
+  --surface-alt: #202f3e;
+  --foreground: #edf3fa;
+  --muted: #b4c3d1;
+  --border: #394b5e;
+  --accent: #9ac9ff;
+  --accent-hover: #b9daff;
+  --accent-soft: #263d55;
+  --on-accent: #102338;
+  --hero: #162c42;
+  --hero-foreground: #ffffff;
+  --hero-muted: #c9d9e8;
+  --positive: #85ddb0;
+  --positive-bg: #1a3b30;
+  --negative: #ffadb0;
+  --negative-bg: #4a2930;
+  --caution: #ffd37b;
+  --caution-bg: #493a22;
+  --focus: #a7d2ff;
+}
+
+:root[data-theme="midnight-blue"] {
+  color-scheme: dark;
+  --background: #071629;
+  --surface: #102641;
+  --surface-alt: #17314f;
+  --foreground: #edf5ff;
+  --muted: #b7cbe0;
+  --border: #2e4a68;
+  --accent: #a4d1ff;
+  --accent-hover: #c1e0ff;
+  --accent-soft: #1c3e60;
+  --on-accent: #09213b;
+  --hero: #0c345b;
+  --hero-foreground: #ffffff;
+  --hero-muted: #d1e4f6;
+  --positive: #85ddb0;
+  --positive-bg: #153d37;
+  --negative: #ffadb0;
+  --negative-bg: #472a38;
+  --caution: #ffd37b;
+  --caution-bg: #44392a;
+  --focus: #a7d2ff;
+}
+
+:root[data-theme="pink"] {
+  color-scheme: light;
+  --background: #fff5f9;
+  --surface: #ffffff;
+  --surface-alt: #fff0f6;
+  --foreground: #301c2c;
+  --muted: #6c4a60;
+  --border: #ebd5e0;
+  --accent: #a32962;
+  --accent-hover: #801e4a;
+  --accent-soft: #fce6f0;
+  --on-accent: #ffffff;
+  --hero: #5d203f;
+  --hero-foreground: #ffffff;
+  --hero-muted: #f9dce9;
+  --positive: #137348;
+  --positive-bg: #e7f5ed;
+  --negative: #b12f37;
+  --negative-bg: #fcebed;
+  --caution: #875600;
+  --caution-bg: #fff3d9;
+  --focus: #a32962;
+}
