@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
     turbopackPluginRuntimeStrategy: "workerThreads",
+    cpus: 2,
+    workerThreads: false,
   },
   async headers() {
     return [

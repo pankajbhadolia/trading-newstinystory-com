@@ -5,7 +5,7 @@ The Next.js foundation for a trading workspace. Free calculators and the persona
 ## Getting started
 
 Use Node.js 22.18 or later and npm; the test runner requires native TypeScript stripping.
-Production builds require development dependencies, including Prisma and Tailwind's PostCSS plugin. `npm run build` generates the Prisma client before building; it does not apply database migrations. Turbopack uses worker threads for CSS/PostCSS processing to avoid child-process startup failures on hosts that restrict worker subprocesses.
+Production builds require development dependencies, including Prisma and Tailwind's PostCSS plugin. `npm run build` generates the Prisma client before building; it does not apply database migrations. Static page generation is limited to two workers to reduce build-time resource pressure. Turbopack uses worker threads for CSS/PostCSS processing to avoid child-process startup failures on hosts that restrict worker subprocesses.
 
 ```bash
 npm install
